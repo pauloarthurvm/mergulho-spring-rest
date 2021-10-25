@@ -46,7 +46,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
-        </dependency><!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-maven-plugin -->
+        </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-maven-plugin</artifactId>
