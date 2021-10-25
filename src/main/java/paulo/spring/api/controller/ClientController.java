@@ -14,7 +14,7 @@ public class ClientController {
     public List<Client> list() {
         Client client1 = new Client();
         client1.setId(1L);
-        client1.setName("Name");
+        client1.setName("Name111");
         client1.setEmail("email@email.com");
         client1.setNumber("41 98769876");
 
@@ -26,5 +26,4 @@ public class ClientController {
 
         return Arrays.asList(client1, client2);
     }
-
 }
