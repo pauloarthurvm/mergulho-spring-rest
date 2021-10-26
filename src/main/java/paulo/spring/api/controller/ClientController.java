@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import paulo.spring.domain.model.Client;
 import paulo.spring.domain.repository.ClientRepository;
 
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -37,12 +37,12 @@ public class ClientController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Client addClient(@RequestBody Client newClient) {
+    public Client addClient(@Valid @RequestBody Client newClient) {
         return clientRepository.save(newClient);
     }
 
     @PutMapping("/{clientId}")
-    public ResponseEntity<Client> update(@PathVariable Long clientId, @RequestBody Client client) {
+    public ResponseEntity<Client> update(@PathVariable Long clientId, @Valid @RequestBody Client client) {
         if (!clientRepository.existsById(clientId)) {
             return ResponseEntity.notFound().build();
         }
