@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import paulo.spring.domain.model.Client;
 import paulo.spring.domain.repository.ClientRepository;
+import paulo.spring.domain.service.ClientCatalogService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 public class ClientController {
 
     private ClientRepository clientRepository;
+    private ClientCatalogService clientCatalogService;
 
     @GetMapping()
     public List<Client> list() {
@@ -38,7 +40,8 @@ public class ClientController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Client addClient(@Valid @RequestBody Client newClient) {
-        return clientRepository.save(newClient);
+//        return clientRepository.save(newClient);
+        return clientCatalogService.addClient(newClient);
     }
 
     @PutMapping("/{clientId}")
