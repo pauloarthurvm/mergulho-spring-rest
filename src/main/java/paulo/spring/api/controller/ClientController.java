@@ -1,21 +1,21 @@
 package paulo.spring.api.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import paulo.spring.domain.model.Client;
+import paulo.spring.domain.repository.ClientRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 public class ClientController {
 
-    @PersistenceContext
-    private EntityManager manager;
+    private ClientRepository clientRepository;
 
     @GetMapping("/clients")
     public List<Client> list() {
-        return manager.createQuery("from Client", Client.class).getResultList();
+        return clientRepository.findAll();
     }
 }

@@ -20,6 +20,7 @@ public class Client {
 
     @Column(name = "name")
     private String name;
+
     private String email;
 
     @Column(name = "phone")
